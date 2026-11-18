@@ -47,6 +47,53 @@
    ```
 - Протестируйте постепенный переход, изменив переменную окружения MOVIES_MIGRATION_PERCENT в файле docker-compose.yml.
 
+#### **Решение:**
+Proxy реализует паттерн Strangler Fig и выступает единой точкой входа для клиентских запросов.
+
+Маршрутизация выполняется следующим образом:
+
+- `GET /health` обрабатывается самим proxy;
+- запросы к `/api/users` направляются в монолит;
+- запросы к `/api/movies` направляются в монолит или сервис `movies`;
+- при `GRADUAL_MIGRATION=false` весь трафик `/api/movies` направляется в монолит;
+- при `GRADUAL_MIGRATION=true` маршрут выбирается с учётом `MOVIES_MIGRATION_PERCENT`.
+
+Конфигурация сервисов передаётся через переменные окружения:
+
+- `MONOLITH_URL`;
+- `MOVIES_SERVICE_URL`;
+- `GRADUAL_MIGRATION`;
+- `MOVIES_MIGRATION_PERCENT`.
+
+Проверка выполнена локально:
+
+- при значении миграции `0%` запросы `/api/movies` направлялись в монолит;
+- при значении миграции `100%` запросы `/api/movies` направлялись в `movies`;
+- при значении миграции `50%` использовались оба маршрута;
+- при отключённом `GRADUAL_MIGRATION` весь трафик направлялся в монолит;
+- запросы через proxy возвращали успешный ответ и корректно сохраняли query-параметр `id`.
+
+Команда запуска для проверки:
+```bash
+sudo docker run --rm \
+  --name cinemaabyss-proxy-test \
+  -p 8000:8000 \
+  -e PORT=8000 \
+  -e MONOLITH_URL=http://host.docker.internal:8080 \
+  -e MOVIES_SERVICE_URL=http://host.docker.internal:8081 \
+  -e GRADUAL_MIGRATION=false \
+  -e MOVIES_MIGRATION_PERCENT=0 \
+  --add-host=host.docker.internal:host-gateway \
+  cinemaabyss-proxy-test
+```
+
+
+Команда проверки API Gateway:
+
+```bash
+curl http://localhost:8000/api/movies
+```
+
 ### 2. Kafka
  Вам как архитектуру нужно также проверить гипотезу насколько просто реализовать применение Kafka в данной архитектуре.
 
@@ -59,6 +106,54 @@
 Необходимые тесты для проверки этого API вызываются при запуске npm run test:local из папки tests/postman 
 Приложите скриншот тестов и скриншот состояния топиков Kafka http://localhost:8090 
 
+
+#### **Решение:**
+
+Реализован MVP-сервис `events` на Go.
+
+Сервис поддерживает следующие endpoint’ы:
+
+- `GET /api/events/health`;
+- `POST /api/events/movie`;
+- `POST /api/events/user`;
+- `POST /api/events/payment`.
+
+Producer формирует событие с полями:
+
+- `id`;
+- `type`;
+- `timestamp`;
+- `payload`.
+
+События публикуются в соответствующие Kafka topic’и:
+
+- `movie-events`;
+- `user-events`;
+- `payment-events`.
+
+В сервисе запущены consumer’ы для всех трёх topic’ов. После получения сообщения consumer декодирует событие и записывает информацию о нём в лог:
+
+```text
+Event processed: topic=movie-events partition=0 offset=2 ...
+````
+
+Проверка выполнена локально:
+
+- события фильма, пользователя и платежа возвращают статус `201 Created`;
+- ответ содержит `status`, `partition`, `offset` и `event`;
+- consumer’ы запускаются для всех трёх topic’ов;
+- обработанные события появляются в логах `events-service`;
+- локальные Postman-тесты завершились успешно: 22 запроса, 42 проверки, 0 ошибок.
+
+Скриншот успешного запуска Postman-тестов:
+
+[[Tests.png]]
+	![[Tests.png|Postman tests]]
+
+Скриншот состояния Kafka topic’ов:
+
+[[Topics.png]]
+![[Topics.png|KafkaUI]]
 
 ## Задание 3
 
