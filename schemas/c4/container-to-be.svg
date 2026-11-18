@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="1460px" preserveAspectRatio="none" style="width:1678px;height:1460px;" version="1.1" viewBox="0 0 1678 1460" width="1678px" zoomAndPan="magnify"><defs/><g><text fill="#000000" font-family="sans-serif" font-size="18" lengthAdjust="spacingAndGlyphs" textLength="462" x="612" y="19.2419">Диаграмма контейнеров C4 — «Кинобездна» (To-Be)</text><!--MD5=[79dbe2884496d1152089926ab503e19b]
+cluster cinema--><rect fill="#FFFFFF" height="1219.35" style="stroke: #444444; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;" width="1201" x="236.5" y="230.1658"/><text fill="#000000" font-family="sans-serif" font-size="14" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="75" x="799.5" y="247.1318">«boundary»</text><text fill="#444444" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="290" x="692" y="268.3378">Онлайн-кинотеатр «Кинобездна»</text><text fill="#444444" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="52" x="811" y="285.8539">[System]</text><!--MD5=[e937783d151d78c9e87fd4c0d99f7485]
+entity proxy--><rect fill="#438DD5" height="188.8878" style="stroke: #3C7FC0; stroke-width: 1.5;" width="220" x="631.5" y="306.1658"/><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="63" x="710" y="328.9939">«container»</text><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="105" x="689" y="349.614">proxy-service</text><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="73" x="705" y="367.1301">[Go, REST API]</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="0" x="743.5" y="385.6121"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="191" x="644" y="404.68">API Gateway и Strangler Fig:</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="140" x="669.5" y="423.7479">единая точка входа,</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="200" x="641.5" y="442.8158">маршрутизация, feature flag</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="103" x="688" y="461.8837">и постепенное</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="166" x="658.5" y="480.9516">переключение трафика</text><!--MD5=[14607e4ba98818863e3e110b79e51248]
+entity movies--><rect fill="#438DD5" height="131.684" style="stroke: #3C7FC0; stroke-width: 1.5;" width="182" x="1131.5" y="963.9458"/><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="63" x="1191" y="986.7739">«container»</text><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="117" x="1164" y="1007.394">movies-service</text><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="73" x="1186" y="1024.9101">[Go, REST API]</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="0" x="1224.5" y="1043.3921"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="158" x="1141.5" y="1062.46">Метаданные фильмов,</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="115" x="1165" y="1081.5279">жанры и актёры</text><!--MD5=[0c2e952d8dc38fa930f0b0933fd1aa60]
+entity subscriptions--><rect fill="#438DD5" height="150.7519" style="stroke: #3C7FC0; stroke-width: 1.5;" width="212" x="1209.5" y="635.5858"/><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="63" x="1284" y="658.4139">«container»</text><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="168" x="1231.5" y="679.034">subscriptions-service</text><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="52" x="1289.5" y="696.5501">[REST API]</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="0" x="1317.5" y="715.0321"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="188" x="1219.5" y="734.1">Тарифы, подписки, скидки,</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="175" x="1226" y="753.1679">ограничения и проверка</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="121" x="1255" y="772.2358">права просмотра</text><!--MD5=[8fc623d9bc0b7fb282528448fb318e5a]
+entity ratings--><rect fill="#438DD5" height="131.684" style="stroke: #3C7FC0; stroke-width: 1.5;" width="205" x="777" y="645.1258"/><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="63" x="848" y="667.9539">«container»</text><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="118" x="820.5" y="688.574">ratings-service</text><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="52" x="853.5" y="706.0901">[REST API]</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="0" x="881.5" y="724.5721"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="181" x="787" y="743.64">Пользовательские оценки</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="61" x="849" y="762.7079">фильмов</text><!--MD5=[a5a7a1c563e7de0fee7f3171b646813b]
+entity collections--><rect fill="#438DD5" height="131.684" style="stroke: #3C7FC0; stroke-width: 1.5;" width="206" x="499.5" y="645.1258"/><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="63" x="571" y="667.9539">«container»</text><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="186" x="509.5" y="688.574">user-collections-service</text><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="52" x="576.5" y="706.0901">[REST API]</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="0" x="604.5" y="724.5721"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="90" x="555.5" y="743.64">Избранное и</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="172" x="516.5" y="762.7079">пользовательские папки</text><!--MD5=[df14f6ca1b235780d601967b0dabfce9]
+entity events--><rect fill="#438DD5" height="169.8199" style="stroke: #3C7FC0; stroke-width: 1.5;" width="219" x="673" y="1263.6958"/><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="63" x="751" y="1286.5239">«container»</text><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="113" x="726" y="1307.144">events-service</text><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="167" x="699" y="1324.6601">[Go, Kafka producer/consumer]</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="0" x="784.5" y="1343.1421"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="195" x="683" y="1362.21">MVP producer/consumer для</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="173" x="694" y="1381.2779">событий User, Payment и</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="168" x="696.5" y="1400.3458">Movie; журналирование</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="72" x="746.5" y="1419.4137">обработки</text><!--MD5=[e29745d789d1cd237fb5892a53e7b9d1]
+entity kafka--><rect fill="#438DD5" height="169.8199" style="stroke: #3C7FC0; stroke-width: 1.5;" width="167" x="846" y="944.8758"/><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="63" x="898" y="967.7039">«container»</text><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="47" x="906" y="988.324">Kafka</text><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="79" x="890" y="1005.8401">[Apache Kafka]</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="0" x="931.5" y="1024.3221"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="143" x="856" y="1043.39">Асинхронный обмен</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="95" x="880" y="1062.4579">доменными и</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="130" x="862.5" y="1081.5258">интеграционными</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="77" x="891" y="1100.5937">событиями</text><!--MD5=[fdbc32b5e31ee40d1ed7eebad5c75b5c]
+entity monolith--><rect fill="#438DD5" height="169.8199" style="stroke: #3C7FC0; stroke-width: 1.5;" width="212" x="252.5" y="626.0558"/><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="63" x="327" y="648.8839">«container»</text><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="77" x="320" y="669.504">Монолит</text><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="73" x="322" y="687.0201">[Go, REST API]</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="0" x="360.5" y="705.5021"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="188" x="262.5" y="724.57">Временный контейнер для</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="141" x="286" y="743.6379">ещё не выделенных</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="169" x="272" y="762.7058">функций; заменяется по</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="87" x="315" y="781.7737">Strangler Fig</text><!--MD5=[8871f7037e7841611a7c449c524f8e73]
+entity webUser--><rect fill="#08427B" height="115.3399" style="stroke: #073B6F; stroke-width: 1.5;" width="177" x="431" y="32.8258"/><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="49" x="495" y="55.6539">«person»</text><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="157" x="441" y="76.274">Пользователь Web</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="0" x="521.5" y="95.9279"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="132" x="451.5" y="114.9959">Смотрит фильмы и</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="147" x="446" y="134.0638">управляет аккаунтом</text><!--MD5=[b88d6a81655a08d897692b20df0e1228]
+entity mobileUser--><rect fill="#08427B" height="115.3399" style="stroke: #073B6F; stroke-width: 1.5;" width="197" x="643" y="32.8258"/><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="49" x="717" y="55.6539">«person»</text><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="177" x="653" y="76.274">Пользователь Mobile</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="0" x="743.5" y="95.9279"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="160" x="659.5" y="114.9959">Использует мобильное</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="88" x="697.5" y="134.0638">приложение</text><!--MD5=[ab9cddeee6f7e2524e133693d590a774]
+entity tvUser--><rect fill="#08427B" height="115.3399" style="stroke: #073B6F; stroke-width: 1.5;" width="215" x="875" y="32.8258"/><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="49" x="958" y="55.6539">«person»</text><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="195" x="885" y="76.274">Пользователь Smart TV</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="0" x="984.5" y="95.9279"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="172" x="894.5" y="114.9959">Использует приложение</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="60" x="952.5" y="134.0638">Smart TV</text><!--MD5=[a5f02ee89d3777b5e72e5774c4d63b2e]
+entity identityProvider--><rect fill="#999999" height="118.064" style="stroke: #8A8A8A; stroke-width: 1.5;" width="211" x="6" y="651.9358"/><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="98" x="62.5" y="674.7639">«external_system»</text><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="150" x="34.5" y="695.384">Внешний Identity</text><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="67" x="78" y="717.176">Provider</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="0" x="113.5" y="736.83"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="191" x="16" y="755.8979">OAuth 2.0 / OpenID Connect</text><!--MD5=[d1b4768cafd8c2addb6db4dc1bda2adf]
+entity paymentProvider--><rect fill="#999999" height="137.132" style="stroke: #8A8A8A; stroke-width: 1.5;" width="209" x="1454" y="332.0458"/><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="98" x="1509.5" y="354.8739">«external_system»</text><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="185" x="1464" y="375.494">Внешний платёжный</text><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="57" x="1530" y="397.286">сервис</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="0" x="1560.5" y="416.94"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="144" x="1484.5" y="436.0079">Платёжные сессии и</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="54" x="1531.5" y="455.0758">callback</text><!--MD5=[bae3f70771d4b80dd4a8a367dfe65e07]
+entity contentProviders--><rect fill="#999999" height="137.132" style="stroke: #8A8A8A; stroke-width: 1.5;" width="214" x="1453.5" y="961.2158"/><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="98" x="1511.5" y="984.0439">«external_system»</text><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="190" x="1463.5" y="1004.664">Внешние поставщики</text><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="79" x="1521" y="1026.456">фильмов</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="0" x="1562.5" y="1046.11"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="177" x="1470" y="1065.1779">Видеопотоки и ссылки на</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="67" x="1527" y="1084.2458">просмотр</text><!--MD5=[9a6ccc70a6e6608c65ff24ac324b87b0]
+entity recommendationSystem--><rect fill="#999999" height="158.924" style="stroke: #8A8A8A; stroke-width: 1.5;" width="186" x="1453.5" y="1269.1458"/><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="98" x="1497.5" y="1291.9739">«external_system»</text><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="76" x="1506.5" y="1312.594">Внешняя</text><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="162" x="1463.5" y="1334.386">рекомендательная</text><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="70" x="1511.5" y="1356.1781">система</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="0" x="1548.5" y="1375.832"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="103" x="1493" y="1394.8999">Персональные</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="102" x="1495.5" y="1413.9679">рекомендации</text><!--MD5=[da6cff943d453b59ffcb48e4fe28d191]
+link webUser to proxy--><path d="M560.48,148.3658 C591.18,190.9858 633.97,250.3758 670.24,300.7058 " fill="none" id="webUser-&gt;proxy" style="stroke: #666666; stroke-width: 1.0;"/><polygon fill="#666666" points="673.07,304.6358,671.0681,294.9926,670.153,300.5749,664.5707,299.6598,673.07,304.6358" style="stroke: #666666; stroke-width: 1.0;"/><text fill="#666666" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="79" x="605.09" y="193.0629">Использует</text><text fill="#666666" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="39" x="625.09" y="209.7">[HTTPS]</text><!--MD5=[10f76dacc8a6fc07a2401c573dd2f1f7]
+link mobileUser to proxy--><path d="M741.5,148.3658 C741.5,190.6458 741.5,249.4158 741.5,299.4858 " fill="none" id="mobileUser-&gt;proxy" style="stroke: #666666; stroke-width: 1.0;"/><polygon fill="#666666" points="741.5,304.3458,745.5,295.3458,741.5,299.3458,737.5,295.3458,741.5,304.3458" style="stroke: #666666; stroke-width: 1.0;"/><text fill="#666666" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="79" x="742.5" y="193.0629">Использует</text><text fill="#666666" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="39" x="762.5" y="209.7">[HTTPS]</text><!--MD5=[7200938202b785554d202f699a450597]
+link tvUser to proxy--><path d="M938.02,148.3658 C904.62,191.0758 858.05,250.6158 818.62,301.0158 " fill="none" id="tvUser-&gt;proxy" style="stroke: #666666; stroke-width: 1.0;"/><polygon fill="#666666" points="815.76,304.6658,824.4545,300.0393,818.8396,300.7268,818.1521,295.1119,815.76,304.6658" style="stroke: #666666; stroke-width: 1.0;"/><text fill="#666666" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="79" x="912.29" y="193.0629">Использует</text><text fill="#666666" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="39" x="932.29" y="209.7">[HTTPS]</text><!--MD5=[1b5828eed6cced2e853fdbd740113b75]
+link proxy to identityProvider--><path d="M631.49,409.1158 C527.27,420.6958 370.09,450.1558 255.5,525.0558 C209.05,555.4158 171.23,605.9058 146.02,646.4658 " fill="none" id="proxy-&gt;identityProvider" style="stroke: #666666; stroke-width: 1.0;"/><polygon fill="#666666" points="143.49,650.5758,151.6083,644.9997,146.1065,646.3151,144.7911,640.8133,143.49,650.5758" style="stroke: #666666; stroke-width: 1.0;"/><text fill="#666666" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="73" x="278.5" y="548.9529">Проверяет</text><text fill="#666666" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="120" x="256.5" y="566.6589">аутентификацию</text><text fill="#666666" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="98" x="267.5" y="583.296">[OAuth 2.0 / OIDC]</text><!--MD5=[be0d114eee65a8675a767cca5af6e3d5]
+link proxy to movies--><path d="M851.98,446.8858 C889.33,466.4858 928.78,492.5058 957.5,525.0558 C1043.66,622.7358 1008.65,680.7158 1069.5,795.8758 C1099.53,852.7158 1139.61,913.2958 1171.21,958.4258 " fill="none" id="proxy-&gt;movies" style="stroke: #666666; stroke-width: 1.0;"/><polygon fill="#666666" points="1173.96,962.3358,1172.051,952.6738,1171.0822,958.2471,1165.5089,957.2783,1173.96,962.3358" style="stroke: #666666; stroke-width: 1.0;"/><text fill="#666666" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="118" x="1070.5" y="699.3629">Маршрутизирует</text><text fill="#666666" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="121" x="1070.5" y="717.0689">запросы каталога</text><text fill="#666666" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="68" x="1097" y="733.706">[REST/HTTPS]</text><!--MD5=[4f77c6adc5deba9138418ffe23087461]
+link proxy to subscriptions--><path d="M851.93,435.8558 C914.96,457.4558 994.35,488.2258 1060.5,525.0558 C1106.24,550.5258 1112.24,565.1558 1154.5,596.0558 C1170.41,607.6858 1187.3,619.8458 1203.93,631.7058 " fill="none" id="proxy-&gt;subscriptions" style="stroke: #666666; stroke-width: 1.0;"/><polygon fill="#666666" points="1207.84,634.4958,1202.8301,626.0164,1203.7675,631.5951,1198.1888,632.5325,1207.84,634.4958" style="stroke: #666666; stroke-width: 1.0;"/><text fill="#666666" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="118" x="1165" y="539.9529">Маршрутизирует</text><text fill="#666666" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="137" x="1155.5" y="557.6589">запросы подписок и</text><text fill="#666666" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="73" x="1189" y="575.3649">просмотра</text><text fill="#666666" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="68" x="1191.5" y="592.002">[REST/HTTPS]</text><!--MD5=[6ba02d3e62fa9c4694b878a37dd75c89]
+link proxy to ratings--><path d="M783.47,495.3858 C804.14,541.5858 828.66,596.3758 847.75,639.0358 " fill="none" id="proxy-&gt;ratings" style="stroke: #666666; stroke-width: 1.0;"/><polygon fill="#666666" points="849.79,643.5858,849.77,633.737,847.75,639.0209,842.4661,637.0009,849.79,643.5858" style="stroke: #666666; stroke-width: 1.0;"/><text fill="#666666" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="118" x="827.92" y="548.9529">Маршрутизирует</text><text fill="#666666" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="110" x="833.42" y="566.6589">запросы оценок</text><text fill="#666666" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="68" x="854.42" y="583.296">[REST/HTTPS]</text><!--MD5=[9bb40a6938b80afe42f0003945d92e46]
+link proxy to collections--><path d="M631.25,475.3958 C616.77,490.0658 604.02,506.6858 595.5,525.0558 C579.2,560.1758 579.8,603.2158 585,638.9358 " fill="none" id="proxy-&gt;collections" style="stroke: #666666; stroke-width: 1.0;"/><polygon fill="#666666" points="585.72,643.5558,588.2843,634.0467,584.949,638.6157,580.38,635.2803,585.72,643.5558" style="stroke: #666666; stroke-width: 1.0;"/><text fill="#666666" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="118" x="603.5" y="548.9529">Маршрутизирует</text><text fill="#666666" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="135" x="596.5" y="566.6589">запросы коллекций</text><text fill="#666666" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="68" x="630" y="583.296">[REST/HTTPS]</text><!--MD5=[6d349443b54393ee5e3580f60df27fdc]
+link proxy to events--><path d="M740.05,495.2758 C737.65,681.7958 734.87,1093.7458 754.5,1233.6958 C755.58,1241.4058 756.97,1249.3658 758.54,1257.3058 " fill="none" id="proxy-&gt;events" style="stroke: #666666; stroke-width: 1.0;"/><polygon fill="#666666" points="759.47,1261.8958,761.5896,1252.2778,758.4702,1256.9968,753.7511,1253.8774,759.47,1261.8958" style="stroke: #666666; stroke-width: 1.0;"/><text fill="#666666" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="143" x="740.39" y="858.7729">Маршрутизирует API</text><text fill="#666666" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="59" x="783.89" y="876.4789">событий</text><text fill="#666666" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="68" x="779.39" y="893.116">[REST/HTTPS]</text><!--MD5=[d12c0f3f012bb4572d6e347e08aa0dd1]
+link proxy to monolith--><path d="M631.13,421.3358 C564.41,438.4558 482,469.5958 427.5,525.0558 C402.29,550.7058 386.15,586.4158 375.89,619.6158 " fill="none" id="proxy-&gt;monolith" style="stroke: #666666; stroke-width: 1.0;"/><polygon fill="#666666" points="374.47,624.3258,380.8915,616.8583,375.9094,619.5375,373.2302,614.5553,374.47,624.3258" style="stroke: #666666; stroke-width: 1.0;"/><text fill="#666666" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="133" x="432.5" y="539.9529">Направляет ещё не</text><text fill="#666666" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="112" x="443" y="557.6589">мигрированные</text><text fill="#666666" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="57" x="472" y="575.3649">запросы</text><text fill="#666666" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="144" x="428.5" y="592.002">[REST/HTTPS + feature flag]</text><!--MD5=[2473a6347eaf699283fdb8d5739f29a4]
+link subscriptions to movies--><path d="M1293.58,786.6458 C1278.43,838.2458 1258.41,906.4658 1243.47,957.3458 " fill="none" id="subscriptions-&gt;movies" style="stroke: #666666; stroke-width: 1.0;"/><polygon fill="#666666" points="1242.1,962.0158,1248.46,954.4958,1243.5,957.2158,1240.78,952.2558,1242.1,962.0158" style="stroke: #666666; stroke-width: 1.0;"/><text fill="#666666" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="65" x="1303.06" y="849.7729">Получает</text><text fill="#666666" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="100" x="1285.56" y="867.4789">метаданные и</text><text fill="#666666" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="112" x="1281.06" y="885.1849">условия доступа</text><text fill="#666666" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="68" x="1303.06" y="901.822">[REST/HTTPS]</text><!--MD5=[384ad27f87cd6aaf4df502499d25dd2d]
+link subscriptions to contentProviders--><path d="M1373.25,786.6458 C1412.79,837.7758 1464.96,905.2358 1504.19,955.9658 " fill="none" id="subscriptions-&gt;contentProviders" style="stroke: #666666; stroke-width: 1.0;"/><polygon fill="#666666" points="1507.01,959.6258,1504.6731,950.0583,1503.9532,955.6691,1498.3423,954.9492,1507.01,959.6258" style="stroke: #666666; stroke-width: 1.0;"/><text fill="#666666" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="73" x="1488.65" y="840.7729">Проверяет</text><text fill="#666666" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="97" x="1476.65" y="858.4789">доступность и</text><text fill="#666666" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="114" x="1468.15" y="876.1849">получает ссылку</text><text fill="#666666" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="110" x="1471.65" y="893.8909">через адаптеры</text><text fill="#666666" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="39" x="1507.15" y="910.528">[HTTPS]</text><!--MD5=[ea0ca4d8bbbc4b9fa23f69af683d3a64]
+link subscriptions to paymentProvider--><path d="M1421.88,650.2458 C1443.3,634.6758 1464.21,616.4558 1480.5,596.0558 C1508.62,560.8558 1527.79,514.1958 1540.09,475.4058 " fill="none" id="subscriptions-&gt;paymentProvider" style="stroke: #666666; stroke-width: 1.0;"/><polygon fill="#666666" points="1541.55,470.6958,1535.0552,478.0997,1540.0635,475.4698,1542.6935,480.4781,1541.55,470.6958" style="stroke: #666666; stroke-width: 1.0;"/><text fill="#666666" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="135" x="1521.73" y="548.9529">Создаёт платёжную</text><text fill="#666666" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="49" x="1566.23" y="566.6589">сессию</text><text fill="#666666" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="39" x="1571.23" y="583.296">[HTTPS]</text><!--MD5=[c7c743c0e240240a9b755f5581eedac5]
+link paymentProvider to subscriptions--><path d="M1479.35,469.4958 C1465.94,478.9758 1451.73,487.9058 1437.5,495.0558 C1393.37,517.2258 1361.91,486.9358 1330.5,525.0558 C1306.98,553.6058 1301.54,593.7558 1302.7,629.3558 " fill="none" id="paymentProvider-&gt;subscriptions" style="stroke: #666666; stroke-width: 1.0;"/><polygon fill="#666666" points="1302.9,633.9758,1306.511,624.8128,1302.6859,628.9804,1298.5183,625.1554,1302.9,633.9758" style="stroke: #666666; stroke-width: 1.0;"/><text fill="#666666" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="137" x="1331.5" y="548.9529">Передаёт результат</text><text fill="#666666" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="50" x="1376.5" y="566.6589">оплаты</text><text fill="#666666" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="91" x="1356" y="583.296">[HTTPS webhook]</text><!--MD5=[3e866c5da82920713fab638f1bdf5dae]
+link ratings to kafka--><path d="M889.8,777.2258 C897.15,823.7858 907.12,887.0058 915.24,938.4158 " fill="none" id="ratings-&gt;kafka" style="stroke: #666666; stroke-width: 1.0;"/><polygon fill="#666666" points="915.98,943.1358,918.5175,933.6195,915.1951,938.1978,910.6167,934.8754,915.98,943.1358" style="stroke: #666666; stroke-width: 1.0;"/><text fill="#666666" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="72" x="912.95" y="858.7729">Публикует</text><text fill="#666666" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="78" x="911.45" y="876.4789">MovieRated</text><text fill="#666666" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="37" x="931.95" y="893.116">[Kafka]</text><!--MD5=[31787ccd589c31a7f699e84760df030f]
+link events to kafka--><path d="M764.33,1263.2758 C760.28,1225.2358 761.57,1180.8358 779.5,1144.6958 C792.94,1117.6258 816.22,1095.2558 840.49,1077.7158 " fill="none" id="events-&gt;kafka" style="stroke: #666666; stroke-width: 1.0;"/><polygon fill="#666666" points="844.45,1074.9158,834.7911,1076.8408,840.366,1077.8004,839.4063,1083.3753,844.45,1074.9158" style="stroke: #666666; stroke-width: 1.0;"/><text fill="#666666" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="109" x="780.5" y="1177.5929">Публикует User,</text><text fill="#666666" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="105" x="784" y="1195.2989">Payment, Movie</text><text fill="#666666" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="37" x="818" y="1211.936">[Kafka]</text><!--MD5=[b08e69908fc33744c9d204e1a8dd43d6]
+link kafka to events--><path d="M928.04,1114.9158 C924.48,1152.9258 916.11,1197.3458 897.5,1233.6958 C893.15,1242.1858 887.93,1250.4358 882.15,1258.3458 " fill="none" id="kafka-&gt;events" style="stroke: #666666; stroke-width: 1.0;"/><polygon fill="#666666" points="879.39,1262.0158,887.99,1257.2158,882.39,1258.0158,881.59,1252.4158,879.39,1262.0158" style="stroke: #666666; stroke-width: 1.0;"/><text fill="#666666" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="109" x="924.71" y="1177.5929">Читает события</text><text fill="#666666" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="109" x="926.21" y="1195.2989">через consumer</text><text fill="#666666" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="37" x="962.21" y="1211.936">[Kafka]</text><!--MD5=[17d8f9c8587bd318e5b9ad8c0e7ffa2d]
+link kafka to recommendationSystem--><path d="M1013.25,1069.0358 C1156.22,1134.3658 1432.58,1260.7258 1437.5,1263.6958 C1440.92,1265.7658 1444.36,1267.9158 1447.8,1270.1358 " fill="none" id="kafka-&gt;recommendationSystem" style="stroke: #666666; stroke-width: 1.0;"/><polygon fill="#666666" points="1451.94,1272.8458,1446.6046,1264.5673,1447.7579,1270.1054,1442.2199,1271.2587,1451.94,1272.8458" style="stroke: #666666; stroke-width: 1.0;"/><text fill="#666666" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="147" x="1372.89" y="1159.5929">Передаёт MovieRated</text><text fill="#666666" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="40" x="1426.39" y="1177.2989">через</text><text fill="#666666" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="119" x="1386.89" y="1195.0049">интеграционный</text><text fill="#666666" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="66" x="1414.89" y="1212.7109">consumer</text><text fill="#666666" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="90" x="1402.89" y="1229.348">[Kafka / adapter]</text><!--MD5=[53e2f223d907d106ff721d9af24b5de2]
+link monolith to kafka--><path d="M431.99,796.3558 C471.13,836.9558 522.15,883.5058 575.5,914.8758 C658.59,963.7358 765.17,994.3458 839.58,1011.3858 " fill="none" id="monolith-&gt;kafka" style="stroke: #666666; stroke-width: 1.0;"/><polygon fill="#666666" points="844.3,1012.4558,836.3984,1006.5767,839.4221,1011.3576,834.6412,1014.3813,844.3,1012.4558" style="stroke: #666666; stroke-width: 1.0;"/><text fill="#666666" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="121" x="576.5" y="858.7729">Публикует legacy-</text><text fill="#666666" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="58" x="608" y="876.4789">события</text><text fill="#666666" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="37" x="618.5" y="893.116">[Kafka]</text><!--MD5=[4937cbeb69a6805756fa4dbe044fbb9f]
+@startuml
+
+
+
+
+
+skinparam defaultTextAlignment center
+
+skinparam wrapWidth 200
+skinparam maxMessageSize 150
+
+skinparam rectangle {
+    StereotypeFontSize 12
+    shadowing false
+}
+
+skinparam database {
+    StereotypeFontSize 12
+    shadowing false
+}
+
+skinparam Arrow {
+    Color #666666
+    FontColor #666666
+    FontSize 12
+}
+
+skinparam rectangle<<boundary>> {
+    Shadowing false
+    StereotypeFontSize 0
+    FontColor #444444
+    BorderColor #444444
+    BorderStyle dashed
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+skinparam rectangle<<person>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #08427B
+    BorderColor #073B6F
+}
+
+skinparam rectangle<<external_person>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #686868
+    BorderColor #8A8A8A
+}
+
+skinparam rectangle<<system>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #1168BD
+    BorderColor #3C7FC0
+}
+
+skinparam rectangle<<external_system>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #999999
+    BorderColor #8A8A8A
+}
+
+skinparam database<<system>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #1168BD
+    BorderColor #3C7FC0
+}
+
+skinparam database<<external_system>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #999999
+    BorderColor #8A8A8A
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+skinparam rectangle<<container>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #438DD5
+    BorderColor #3C7FC0
+}
+
+skinparam database<<container>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #438DD5
+    BorderColor #3C7FC0
+}
+
+
+
+
+
+
+
+
+title Диаграмма контейнеров C4 — «Кинобездна» (To-Be)
+
+rectangle "==Пользователь Web\n\n Смотрит фильмы и управляет аккаунтом" <<person>> as webUser
+rectangle "==Пользователь Mobile\n\n Использует мобильное приложение" <<person>> as mobileUser
+rectangle "==Пользователь Smart TV\n\n Использует приложение Smart TV" <<person>> as tvUser
+
+rectangle "==Онлайн-кинотеатр «Кинобездна»\n<size:12>[System]</size>" <<boundary>> as cinema {
+  rectangle "==proxy-service\n//<size:12>[Go, REST API]</size>//\n\n API Gateway и Strangler Fig: единая точка входа, маршрутизация, feature flag и постепенное переключение трафика" <<container>> as proxy
+
+  rectangle "==movies-service\n//<size:12>[Go, REST API]</size>//\n\n Метаданные фильмов, жанры и актёры" <<container>> as movies
+  rectangle "==subscriptions-service\n//<size:12>[REST API]</size>//\n\n Тарифы, подписки, скидки, ограничения и проверка права просмотра" <<container>> as subscriptions
+  rectangle "==ratings-service\n//<size:12>[REST API]</size>//\n\n Пользовательские оценки фильмов" <<container>> as ratings
+  rectangle "==user-collections-service\n//<size:12>[REST API]</size>//\n\n Избранное и пользовательские папки" <<container>> as collections
+
+  rectangle "==events-service\n//<size:12>[Go, Kafka producer/consumer]</size>//\n\n MVP producer/consumer для событий User, Payment и Movie; журналирование обработки" <<container>> as events
+  rectangle "==Kafka\n//<size:12>[Apache Kafka]</size>//\n\n Асинхронный обмен доменными и интеграционными событиями" <<container>> as kafka
+  rectangle "==Монолит\n//<size:12>[Go, REST API]</size>//\n\n Временный контейнер для ещё не выделенных функций; заменяется по Strangler Fig" <<container>> as monolith
+}
+
+rectangle "==Внешний Identity Provider\n\n OAuth 2.0 / OpenID Connect" <<external_system>> as identityProvider
+rectangle "==Внешний платёжный сервис\n\n Платёжные сессии и callback" <<external_system>> as paymentProvider
+rectangle "==Внешние поставщики фильмов\n\n Видеопотоки и ссылки на просмотр" <<external_system>> as contentProviders
+rectangle "==Внешняя рекомендательная система\n\n Персональные рекомендации" <<external_system>> as recommendationSystem
+
+webUser - -> proxy : "===Использует\n//<size:12>[HTTPS]</size>//"
+mobileUser - -> proxy : "===Использует\n//<size:12>[HTTPS]</size>//"
+tvUser - -> proxy : "===Использует\n//<size:12>[HTTPS]</size>//"
+
+proxy - -> identityProvider : "===Проверяет аутентификацию\n//<size:12>[OAuth 2.0 / OIDC]</size>//"
+proxy - -> movies : "===Маршрутизирует запросы каталога\n//<size:12>[REST/HTTPS]</size>//"
+proxy - -> subscriptions : "===Маршрутизирует запросы подписок и просмотра\n//<size:12>[REST/HTTPS]</size>//"
+proxy - -> ratings : "===Маршрутизирует запросы оценок\n//<size:12>[REST/HTTPS]</size>//"
+proxy - -> collections : "===Маршрутизирует запросы коллекций\n//<size:12>[REST/HTTPS]</size>//"
+proxy - -> events : "===Маршрутизирует API событий\n//<size:12>[REST/HTTPS]</size>//"
+proxy - -> monolith : "===Направляет ещё не мигрированные запросы\n//<size:12>[REST/HTTPS + feature flag]</size>//"
+
+subscriptions - -> movies : "===Получает метаданные и условия доступа\n//<size:12>[REST/HTTPS]</size>//"
+subscriptions - -> contentProviders : "===Проверяет доступность и получает ссылку через адаптеры\n//<size:12>[HTTPS]</size>//"
+subscriptions - -> paymentProvider : "===Создаёт платёжную сессию\n//<size:12>[HTTPS]</size>//"
+paymentProvider - -> subscriptions : "===Передаёт результат оплаты\n//<size:12>[HTTPS webhook]</size>//"
+
+ratings - -> kafka : "===Публикует MovieRated\n//<size:12>[Kafka]</size>//"
+events - -> kafka : "===Публикует User, Payment, Movie\n//<size:12>[Kafka]</size>//"
+kafka - -> events : "===Читает события через consumer\n//<size:12>[Kafka]</size>//"
+kafka - -> recommendationSystem : "===Передаёт MovieRated через интеграционный consumer\n//<size:12>[Kafka / adapter]</size>//"
+monolith - -> kafka : "===Публикует legacy-события\n//<size:12>[Kafka]</size>//"
+
+@enduml
+
+PlantUML version 1.2020.02(Sun Mar 01 13:22:07 MSK 2020)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Java Version: 25.0.5.0.3+1-3-26.04.1-Ubuntu
+Operating System: Linux
+Default Encoding: UTF-8
+Language: ru
+Country: RU
+--></g></svg>

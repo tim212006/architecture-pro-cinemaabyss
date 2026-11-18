@@ -1,0 +1,43 @@
+@startuml
+!include <C4/C4_Component>
+
+title Компоненты proxy-service
+
+System_Ext(webClient, "Web / Mobile / Smart TV", "Клиентские приложения", "Отправляют запросы в единую точку входа")
+Container_Ext(identityProvider, "Внешний Identity Provider", "OAuth 2.0 / OIDC", "Аутентификация пользователей")
+Container_Ext(movies, "movies-service", "REST API", "Метаданные фильмов")
+Container_Ext(subscriptions, "subscriptions-service", "REST API", "Подписки и доступ к просмотру")
+Container_Ext(ratings, "ratings-service", "REST API", "Пользовательские оценки")
+Container_Ext(collections, "user-collections-service", "REST API", "Избранное и папки")
+Container_Ext(events, "events-service", "REST API", "API событий")
+Container_Ext(monolith, "Монолит", "REST API", "Ещё не мигрированные функции")
+
+Container_Boundary(proxy, "proxy-service") {
+  Component(httpRouter, "HTTP Router", "Go HTTP server", "Принимает входящие REST-запросы")
+  Component(authMiddleware, "Authentication Middleware", "Go middleware", "Проверяет токен и формирует контекст пользователя")
+  Component(routeResolver, "Route Resolver", "Go", "Определяет домен по пути и HTTP-методу")
+  Component(featureFlagManager, "Feature Flag Manager", "Go, environment config", "Читает GRADUAL_MIGRATION и MOVIES_MIGRATION_PERCENT")
+  Component(migrationRouter, "Migration Router", "Go", "Выбирает монолит или movies-service для /api/movies")
+  Component(requestForwarder, "Request Forwarder", "Go HTTP client", "Передаёт запрос и возвращает ответ целевого сервиса")
+  Component(healthController, "Health Controller", "Go HTTP handler", "Обрабатывает GET /health")
+  Component(observability, "Observability Middleware", "Go middleware", "Логи, метрики, correlation/trace ID")
+}
+
+Rel(webClient, httpRouter, "REST-запросы", "HTTPS")
+Rel(httpRouter, observability, "Передаёт запрос")
+Rel(observability, authMiddleware, "Запрос с correlation ID")
+Rel(authMiddleware, identityProvider, "Проверяет токен", "OAuth 2.0 / OIDC")
+Rel(authMiddleware, routeResolver, "Передаёт user context")
+Rel(routeResolver, healthController, "Маршрут /health")
+Rel(routeResolver, migrationRouter, "Маршрут /api/movies")
+Rel(routeResolver, requestForwarder, "Остальные маршруты")
+Rel(migrationRouter, featureFlagManager, "Читает настройки миграции")
+Rel(migrationRouter, requestForwarder, "Передаёт выбранную цель")
+Rel(requestForwarder, movies, "Запросы фильмов", "REST/HTTPS")
+Rel(requestForwarder, subscriptions, "Запросы подписок и просмотра", "REST/HTTPS")
+Rel(requestForwarder, ratings, "Запросы оценок", "REST/HTTPS")
+Rel(requestForwarder, collections, "Запросы коллекций", "REST/HTTPS")
+Rel(requestForwarder, events, "Запросы событий", "REST/HTTPS")
+Rel(requestForwarder, monolith, "Legacy-запросы", "REST/HTTPS")
+
+@enduml

@@ -1,0 +1,26 @@
+@startuml
+!include <C4/C4_Component>
+
+title Компоненты ratings-service
+
+System_Ext(proxy, "proxy-service", "API Gateway", "Маршрутизирует запросы оценок")
+System_Ext(kafka, "Kafka", "Apache Kafka", "Публикует событие MovieRated")
+SystemDb_Ext(ratingsDb, "ratings database", "PostgreSQL", "Пользовательские оценки")
+
+Container_Boundary(ratings, "ratings-service") {
+  Component(ratingApi, "Rating API", "REST handlers", "Создаёт и изменяет оценку пользователя")
+  Component(ratingValidator, "Rating Validator", "Domain service", "Проверяет диапазон и права пользователя")
+  Component(ratingManager, "Rating Manager", "Domain service", "Сохраняет актуальную оценку")
+  Component(eventPublisher, "Rating Event Publisher", "Kafka producer", "Публикует MovieRated")
+  Component(repository, "Rating Repository", "SQL adapter", "Доступ к оценкам")
+}
+
+Rel(proxy, ratingApi, "Запросы оценок", "REST/HTTPS")
+Rel(ratingApi, ratingValidator, "Проверяет оценку")
+Rel(ratingValidator, ratingManager, "Передаёт валидную оценку")
+Rel(ratingManager, repository, "Читает и пишет")
+Rel(repository, ratingsDb, "SQL")
+Rel(ratingManager, eventPublisher, "Публикует изменение оценки")
+Rel(eventPublisher, kafka, "MovieRated", "Kafka")
+
+@enduml

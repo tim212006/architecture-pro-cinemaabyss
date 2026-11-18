@@ -1,0 +1,51 @@
+@startuml
+!include <C4/C4_Container>
+
+title Диаграмма контейнеров C4 — «Кинобездна» (To-Be)
+
+Person(webUser, "Пользователь Web", "Смотрит фильмы и управляет аккаунтом")
+Person(mobileUser, "Пользователь Mobile", "Использует мобильное приложение")
+Person(tvUser, "Пользователь Smart TV", "Использует приложение Smart TV")
+
+System_Boundary(cinema, "Онлайн-кинотеатр «Кинобездна»") {
+  Container(proxy, "proxy-service", "Go, REST API", "API Gateway и Strangler Fig: единая точка входа, маршрутизация, feature flag и постепенное переключение трафика")
+
+  Container(movies, "movies-service", "Go, REST API", "Метаданные фильмов, жанры и актёры")
+  Container(subscriptions, "subscriptions-service", "REST API", "Тарифы, подписки, скидки, ограничения и проверка права просмотра")
+  Container(ratings, "ratings-service", "REST API", "Пользовательские оценки фильмов")
+  Container(collections, "user-collections-service", "REST API", "Избранное и пользовательские папки")
+
+  Container(events, "events-service", "Go, Kafka producer/consumer", "MVP producer/consumer для событий User, Payment и Movie; журналирование обработки")
+  Container(kafka, "Kafka", "Apache Kafka", "Асинхронный обмен доменными и интеграционными событиями")
+  Container(monolith, "Монолит", "Go, REST API", "Временный контейнер для ещё не выделенных функций; заменяется по Strangler Fig")
+}
+
+System_Ext(identityProvider, "Внешний Identity Provider", "OAuth 2.0 / OpenID Connect")
+System_Ext(paymentProvider, "Внешний платёжный сервис", "Платёжные сессии и callback")
+System_Ext(contentProviders, "Внешние поставщики фильмов", "Видеопотоки и ссылки на просмотр")
+System_Ext(recommendationSystem, "Внешняя рекомендательная система", "Персональные рекомендации")
+
+Rel(webUser, proxy, "Использует", "HTTPS")
+Rel(mobileUser, proxy, "Использует", "HTTPS")
+Rel(tvUser, proxy, "Использует", "HTTPS")
+
+Rel(proxy, identityProvider, "Проверяет аутентификацию", "OAuth 2.0 / OIDC")
+Rel(proxy, movies, "Маршрутизирует запросы каталога", "REST/HTTPS")
+Rel(proxy, subscriptions, "Маршрутизирует запросы подписок и просмотра", "REST/HTTPS")
+Rel(proxy, ratings, "Маршрутизирует запросы оценок", "REST/HTTPS")
+Rel(proxy, collections, "Маршрутизирует запросы коллекций", "REST/HTTPS")
+Rel(proxy, events, "Маршрутизирует API событий", "REST/HTTPS")
+Rel(proxy, monolith, "Направляет ещё не мигрированные запросы", "REST/HTTPS + feature flag")
+
+Rel(subscriptions, movies, "Получает метаданные и условия доступа", "REST/HTTPS")
+Rel(subscriptions, contentProviders, "Проверяет доступность и получает ссылку через адаптеры", "HTTPS")
+Rel(subscriptions, paymentProvider, "Создаёт платёжную сессию", "HTTPS")
+Rel(paymentProvider, subscriptions, "Передаёт результат оплаты", "HTTPS webhook")
+
+Rel(ratings, kafka, "Публикует MovieRated", "Kafka")
+Rel(events, kafka, "Публикует User, Payment, Movie", "Kafka")
+Rel(kafka, events, "Читает события через consumer", "Kafka")
+Rel(kafka, recommendationSystem, "Передаёт MovieRated через интеграционный consumer", "Kafka / adapter")
+Rel(monolith, kafka, "Публикует legacy-события", "Kafka")
+
+@enduml

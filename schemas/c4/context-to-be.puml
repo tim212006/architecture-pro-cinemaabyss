@@ -1,0 +1,26 @@
+@startuml
+!include <C4/C4_Context>
+
+title Контекстная диаграмма C4 — «Кинобездна» (To-Be)
+
+Person(webUser, "Пользователь Web", "Смотрит фильмы, управляет подпиской, ставит оценки и создаёт папки")
+Person(mobileUser, "Пользователь Mobile", "Использует мобильное приложение кинотеатра")
+Person(tvUser, "Пользователь Smart TV", "Смотрит фильмы через приложение Smart TV")
+
+System(cinema, "Онлайн-кинотеатр «Кинобездна»", "Агрегирует каталог фильмов, подписки, доступ к просмотру, оценки и пользовательские коллекции")
+
+System_Ext(identityProvider, "Внешний Identity Provider", "Внешняя аутентификация через OAuth 2.0 / OpenID Connect")
+System_Ext(paymentProvider, "Внешний платёжный сервис", "Создание платёжной сессии и передача результата оплаты")
+System_Ext(contentProviders, "Внешние поставщики фильмов", "Поставляют видеоконтент; «Кинобездна» не хранит фильмы")
+System_Ext(recommendationSystem, "Внешняя рекомендательная система", "Формирует персональные рекомендации")
+
+Rel(webUser, cinema, "Смотрит фильмы и управляет аккаунтом", "HTTPS")
+Rel(mobileUser, cinema, "Смотрит фильмы и управляет аккаунтом", "HTTPS")
+Rel(tvUser, cinema, "Смотрит фильмы и управляет аккаунтом", "HTTPS")
+
+Rel(cinema, identityProvider, "Аутентифицирует пользователей", "OAuth 2.0 / OIDC")
+Rel(cinema, paymentProvider, "Создаёт платёжную сессию и получает результат", "HTTPS / webhook")
+Rel(cinema, contentProviders, "Проверяет доступность и получает ссылку на просмотр", "HTTPS / адаптеры")
+Rel(cinema, recommendationSystem, "Передаёт пользовательские оценки и получает рекомендации", "HTTPS / events")
+
+@enduml

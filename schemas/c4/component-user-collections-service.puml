@@ -1,0 +1,27 @@
+@startuml
+!include <C4/C4_Component>
+
+title Компоненты user-collections-service
+
+System_Ext(proxy, "proxy-service", "API Gateway", "Маршрутизирует запросы коллекций")
+System_Ext(movies, "movies-service", "REST API", "Проверяет существование фильма и возвращает метаданные")
+SystemDb_Ext(collectionsDb, "collections database", "PostgreSQL", "Папки, элементы избранного и ссылки на фильмы")
+
+Container_Boundary(collections, "user-collections-service") {
+  Component(collectionApi, "Collection API", "REST handlers", "Создаёт папки и управляет элементами")
+  Component(folderManager, "Folder Manager", "Domain service", "Создаёт, переименовывает и удаляет папки")
+  Component(favouriteManager, "Favourite Manager", "Domain service", "Добавляет и удаляет фильмы из избранного")
+  Component(movieReferenceValidator, "Movie Reference Validator", "REST client", "Проверяет ссылку на фильм")
+  Component(repository, "Collection Repository", "SQL adapter", "Доступ к папкам и элементам")
+}
+
+Rel(proxy, collectionApi, "Запросы избранного и папок", "REST/HTTPS")
+Rel(collectionApi, folderManager, "Операции с папками")
+Rel(collectionApi, favouriteManager, "Операции с избранным")
+Rel(favouriteManager, movieReferenceValidator, "Проверяет фильм")
+Rel(movieReferenceValidator, movies, "Проверяет существование фильма", "REST/HTTPS")
+Rel(folderManager, repository, "Читает и пишет")
+Rel(favouriteManager, repository, "Читает и пишет")
+Rel(repository, collectionsDb, "SQL")
+
+@enduml
