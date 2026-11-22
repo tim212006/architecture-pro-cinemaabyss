@@ -1,0 +1,75 @@
+@startuml CinemaAbyss-Proxy-Components
+title proxy-service - Component Diagram
+
+skinparam shadowing false
+skinparam linetype ortho
+skinparam packageStyle rectangle
+skinparam defaultTextAlignment center
+skinparam ArrowColor #52606d
+skinparam ArrowFontColor #263238
+skinparam packageBorderColor #52606d
+skinparam packageBackgroundColor #f5f7fa
+skinparam componentStyle rectangle
+skinparam componentBorderColor #2f4858
+skinparam componentBackgroundColor #dbeafe
+skinparam componentFontColor #17202a
+skinparam actorBorderColor #2f4858
+skinparam actorBackgroundColor #fff4cc
+skinparam cloudBorderColor #52606d
+skinparam cloudBackgroundColor #fef3c7
+
+top to bottom direction
+
+actor "Web / Mobile / Smart TV client" as client
+
+rectangle "proxy-service" as proxy #bfdbfe {
+  component "HTTP Router\nHandles incoming REST requests" as router
+  component "Authentication Middleware\nValidates OAuth 2.0 / OIDC token" as auth
+  component "Route Resolver\nMaps URL and method to target" as resolver
+  component "Feature Flag Manager\nGRADUAL_MIGRATION\nMOVIES_MIGRATION_PERCENT" as flags
+  component "Migration Router\nSelects monolith or movies-service" as migration
+  component "Request Forwarder\nProxies request and response" as forwarder
+  component "Health Controller\nGET /health" as health
+  component "Observability Middleware\nLogs, metrics, trace ID" as observability
+}
+
+rectangle "Target services" as targets #eef6ff {
+  component "movies-service" as movies #dbeafe
+  component "subscriptions-service" as subscriptions #dbeafe
+  component "ratings-service" as ratings #dbeafe
+  component "user-collections-service" as collections #dbeafe
+  component "events-service" as events #e5e7eb
+  component "Monolith" as monolith #fecaca
+}
+
+client --> router : REST/HTTPS
+router --> observability : Request context
+observability --> auth : Authenticated request
+auth --> resolver : User identity and roles
+resolver --> health : /health
+resolver --> migration : /api/movies
+resolver --> forwarder : Other API routes
+
+migration --> flags : Reads migration settings
+migration --> forwarder : Selected target
+forwarder --> movies : Movies route
+forwarder --> subscriptions : Subscriptions route
+forwarder --> ratings : Ratings route
+forwarder --> collections : Collections route
+forwarder --> events : Events route
+forwarder --> monolith : Legacy route
+
+note right of migration
+  Feature flag controls gradual migration.
+  0% routes movie traffic to monolith.
+  100% routes movie traffic to movies-service.
+end note
+
+legend right
+  |= Component group |= Responsibility |
+  |<back:#bfdbfe>Blue</back>| Proxy component |
+  |<back:#dbeafe>Light blue</back>| Target domain service |
+  |<back:#e5e7eb>Gray</back>| Integration service |
+  |<back:#fecaca>Red</back>| Transitional monolith |
+endlegend
+@enduml
