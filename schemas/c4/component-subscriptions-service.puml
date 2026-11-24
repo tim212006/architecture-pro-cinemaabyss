@@ -1,0 +1,39 @@
+@startuml
+!include <C4/C4_Component>
+
+title Компоненты subscriptions-service
+
+System_Ext(proxy, "proxy-service", "API Gateway", "Маршрутизирует запросы подписок и просмотра")
+System_Ext(movies, "movies-service", "REST API", "Метаданные и условия доступа к фильмам")
+System_Ext(payment, "Внешний платёжный сервис", "HTTPS API / webhook", "Оплата подписки")
+System_Ext(providerA, "Поставщик контента A", "External API", "Видеоконтент")
+System_Ext(providerB, "Поставщик контента B", "External API", "Видеоконтент")
+
+Container_Boundary(subscriptions, "subscriptions-service") {
+  Component(subscriptionApi, "Subscription API", "REST handlers", "Операции с тарифами и подписками")
+  Component(subscriptionManager, "Subscription Manager", "Domain service", "Создание, продление и отмена подписки")
+  Component(discountPolicy, "Discount Policy", "Domain service", "Применяет скидки внутри домена подписок")
+  Component(entitlementChecker, "Entitlement Checker", "Domain service", "Проверяет тариф, ограничения и право просмотра")
+  Component(providerSelector, "Provider Selector", "Domain service", "Выбирает доступного поставщика")
+  Component(providerAAdapter, "Provider A Adapter", "Adapter", "Переводит API поставщика A во внутренний контракт")
+  Component(providerBAdapter, "Provider B Adapter", "Adapter", "Переводит API поставщика B во внутренний контракт")
+  Component(paymentCallback, "Payment Callback Handler", "Webhook handler", "Обрабатывает подтверждение оплаты")
+  Component(subscriptionRepository, "Subscription Repository", "SQL adapter", "Хранит тарифы и подписки")
+}
+
+Rel(proxy, subscriptionApi, "Запросы подписки и просмотра", "REST/HTTPS")
+Rel(subscriptionApi, subscriptionManager, "Управляет подпиской")
+Rel(subscriptionApi, entitlementChecker, "Проверяет право просмотра")
+Rel(subscriptionManager, discountPolicy, "Рассчитывает скидку")
+Rel(subscriptionManager, subscriptionRepository, "Читает и пишет подписки")
+Rel(entitlementChecker, movies, "Получает условия доступа", "REST/HTTPS")
+Rel(entitlementChecker, providerSelector, "Передаёт запрос доступности")
+Rel(providerSelector, providerAAdapter, "Пробует поставщика A")
+Rel(providerSelector, providerBAdapter, "Пробует поставщика B")
+Rel(providerAAdapter, providerA, "Проверяет фильм и получает ссылку", "HTTPS")
+Rel(providerBAdapter, providerB, "Проверяет фильм и получает ссылку", "HTTPS")
+Rel(subscriptionManager, payment, "Создаёт платёжную сессию", "HTTPS")
+Rel(payment, paymentCallback, "Передаёт результат оплаты", "HTTPS webhook")
+Rel(paymentCallback, subscriptionManager, "Активирует подписку")
+
+@enduml

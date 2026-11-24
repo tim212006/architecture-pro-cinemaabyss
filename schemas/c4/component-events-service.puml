@@ -1,0 +1,30 @@
+@startuml
+!include <C4/C4_Component>
+
+title Компоненты events-service
+
+System_Ext(proxy, "proxy-service", "API Gateway", "Маршрутизирует API событий")
+System_Ext(kafka, "Kafka", "Apache Kafka", "Топики User, Payment, Movie и MovieRated")
+System_Ext(recommendation, "Внешняя рекомендательная система", "Принимает оценки пользователей")
+
+Container_Boundary(events, "events-service") {
+  Component(eventApi, "Event API", "Go REST handlers", "Создаёт события User, Payment и Movie")
+  Component(eventFactory, "Event Factory", "Go", "Формирует типизированное событие с id и timestamp")
+  Component(producer, "Kafka Producer", "Go Kafka client", "Публикует событие в соответствующий topic")
+  Component(consumer, "Kafka Consumer", "Go Kafka client", "Читает события и управляет offset")
+  Component(eventProcessor, "Event Processor", "Go", "Декодирует событие и обрабатывает его")
+  Component(recommendationAdapter, "Recommendation Adapter", "Go adapter", "Передаёт MovieRated во внешний сервис")
+  Component(eventLogger, "Event Logger", "Go", "Записывает результат обработки в лог")
+}
+
+Rel(proxy, eventApi, "API запросы событий", "REST/HTTPS")
+Rel(eventApi, eventFactory, "Создаёт User, Payment, Movie")
+Rel(eventFactory, producer, "Передаёт событие")
+Rel(producer, kafka, "Публикует в topic", "Kafka")
+Rel(kafka, consumer, "Доставляет сообщения", "Kafka")
+Rel(consumer, eventProcessor, "Передаёт сообщение")
+Rel(eventProcessor, eventLogger, "Логирует обработку")
+Rel(eventProcessor, recommendationAdapter, "Передаёт MovieRated")
+Rel(recommendationAdapter, recommendation, "Передаёт оценку", "HTTPS / adapter")
+
+@enduml

@@ -1,0 +1,79 @@
+@startuml CinemaAbyss-Container
+title CinemaAbyss - Container Diagram
+
+skinparam shadowing false
+skinparam linetype ortho
+skinparam packageStyle rectangle
+skinparam defaultTextAlignment center
+skinparam ArrowColor #52606d
+skinparam ArrowFontColor #263238
+skinparam packageBorderColor #52606d
+skinparam packageBackgroundColor #f5f7fa
+skinparam componentStyle rectangle
+skinparam componentBorderColor #2f4858
+skinparam componentFontColor #17202a
+skinparam actorBorderColor #2f4858
+skinparam actorBackgroundColor #fff4cc
+skinparam cloudBorderColor #52606d
+skinparam cloudBackgroundColor #fef3c7
+
+top to bottom direction
+
+actor "Web / Mobile / Smart TV users" as users
+
+rectangle "CinemaAbyss" as cinema #f5f7fa {
+  component "proxy-service\nAPI Gateway / Strangler Fig\nSingle entry point" as proxy #bfdbfe
+
+  rectangle "Domain containers" as domain #eef6ff {
+    component "movies-service\nMetadata, genres, actors\nGo, REST" as movies #dbeafe
+    component "subscriptions-service\nPlans, discounts, access\nREST" as subscriptions #dbeafe
+    component "ratings-service\nUser ratings\nREST" as ratings #dbeafe
+    component "user-collections-service\nFavourites and folders\nREST" as collections #dbeafe
+  }
+
+  rectangle "Integration containers" as integration #f4f4f5 {
+    component "events-service\nKafka producer / consumer\nGo" as events #e5e7eb
+    component "Kafka\nEvent broker" as kafka #e5e7eb
+  }
+
+  component "Monolith\nTemporary migration boundary\nGo, REST" as monolith #fecaca
+}
+
+cloud "External Identity Provider" as identity
+cloud "External Payment Service" as payment
+cloud "External Content Providers" as content
+cloud "External Recommendation System" as recommendation
+
+users --> proxy : Uses\nHTTPS
+proxy --> movies : Routes movie requests\nREST/HTTPS
+proxy --> subscriptions : Routes subscription and\nviewing requests\nREST/HTTPS
+proxy --> ratings : Routes rating requests\nREST/HTTPS
+proxy --> collections : Routes collection requests\nREST/HTTPS
+proxy --> events : Routes event API requests\nREST/HTTPS
+proxy --> monolith : Routes remaining functions\nFeature flag
+proxy --> identity : Login\nOAuth 2.0 / OIDC
+
+subscriptions --> movies : Movie metadata\nREST/HTTPS
+subscriptions --> content : Availability and playback link\nProvider adapters
+subscriptions --> payment : Payment session / callback\nHTTPS
+
+ratings --> kafka : MovieRated\nKafka
+events --> kafka : User, Payment, Movie\nKafka producer
+kafka --> events : Consumes events\nKafka consumer
+kafka --> recommendation : MovieRated\nIntegration adapter
+monolith --> kafka : Legacy events\nKafka
+
+note right of proxy
+  Clients use only proxy-service.
+  Internal services call each other directly
+  or use Kafka, not the API Gateway.
+end note
+
+legend right
+  |= Element |= Meaning |
+  |<back:#bfdbfe>Blue</back>| API Gateway |
+  |<back:#dbeafe>Light blue</back>| Domain container |
+  |<back:#e5e7eb>Gray</back>| Integration container |
+  |<back:#fecaca>Red</back>| Transitional monolith |
+endlegend
+@enduml

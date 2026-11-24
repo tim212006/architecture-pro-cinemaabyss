@@ -1,0 +1,27 @@
+@startuml
+!include <C4/C4_Component>
+
+title Компоненты movies-service
+
+System_Ext(proxy, "proxy-service", "API Gateway", "Маршрутизирует запросы каталога")
+System_Ext(subscriptions, "subscriptions-service", "REST API", "Проверяет доступ к просмотру")
+SystemDb_Ext(moviesDb, "movies database", "PostgreSQL", "Метаданные фильмов, жанры и актёры")
+
+Container_Boundary(movies, "movies-service") {
+  Component(movieApi, "Movie API", "Go REST handlers", "Обрабатывает запросы списка и карточки фильма")
+  Component(movieCatalog, "Movie Catalog", "Go domain service", "Правила выдачи и поиска метаданных")
+  Component(metadataReader, "Metadata Reader", "Go", "Читает фильмы, жанры и актёров")
+  Component(accessRulesReader, "Access Rules Reader", "Go", "Возвращает специальные условия доступа к фильму")
+  Component(repository, "Movie Repository", "Go / SQL", "Изолирует доступ к базе данных")
+}
+
+Rel(proxy, movieApi, "Запросы каталога", "REST/HTTPS")
+Rel(subscriptions, movieApi, "Запрашивает метаданные и условия доступа", "REST/HTTPS")
+Rel(movieApi, movieCatalog, "Передаёт запрос")
+Rel(movieCatalog, metadataReader, "Читает метаданные")
+Rel(movieCatalog, accessRulesReader, "Читает правила доступа")
+Rel(metadataReader, repository, "Читает фильмы, жанры и актёров")
+Rel(accessRulesReader, repository, "Читает условия доступа")
+Rel(repository, moviesDb, "SQL")
+
+@enduml

@@ -1,0 +1,49 @@
+@startuml CinemaAbyss-Context
+title CinemaAbyss - System Context Diagram
+
+skinparam shadowing false
+skinparam linetype ortho
+skinparam defaultTextAlignment center
+skinparam ArrowColor #52606d
+skinparam actorBorderColor #2f4858
+skinparam actorBackgroundColor #fff4cc
+skinparam rectangleBorderColor #2f4858
+skinparam rectangleBackgroundColor #dbeafe
+skinparam cloudBorderColor #52606d
+skinparam cloudBackgroundColor #fef3c7
+
+top to bottom direction
+
+actor "Web user" as webUser
+actor "Mobile user" as mobileUser
+actor "Smart TV user" as tvUser
+
+rectangle "CinemaAbyss\nOnline cinema aggregator" as cinema #dbeafe
+
+cloud "External Identity Provider\nOAuth 2.0 / OIDC" as identity
+cloud "External Payment Service" as payment
+cloud "External Content Providers\nMovie streams" as content
+cloud "External Recommendation System" as recommendation
+
+webUser --> cinema : Watches movies,\nmanages subscription
+mobileUser --> cinema : Watches movies,\nmanages subscription
+tvUser --> cinema : Watches movies,\nmanages subscription
+
+cinema --> identity : Authenticates users
+cinema --> payment : Creates payment session
+cinema --> content : Checks availability\nand obtains playback link
+cinema --> recommendation : Sends ratings and\nrequests recommendations
+
+note right of cinema
+  CinemaAbyss provides a single entry point
+  for clients and aggregates access to movie
+  metadata, subscriptions, ratings and collections.
+end note
+
+legend right
+  |= Element |= Meaning |
+  |<back:#fff4cc>Yellow</back>| Person / client |
+  |<back:#dbeafe>Blue</back>| System in scope |
+  |<back:#fef3c7>Light yellow</back>| External system |
+endlegend
+@enduml

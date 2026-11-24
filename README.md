@@ -9,6 +9,35 @@
 - Архитектура, управляемая событиями, с использованием Kafka
 - CI/CD Pipeline с GitHub Actions
 
+## C4-документация
+
+Диаграммы To-Be выполнены в формате C4, по структуре проектной работы спринта 1.
+
+Каталог диаграмм: [[schemas/c4/README|schemas/c4]]
+
+### Уровень 1 — контекст
+
+- [[schemas/c4/context-to-be.puml|Исходник PlantUML]]
+
+![[schemas/c4/context-to-be.png|Контекстная диаграмма C4 To-Be]]
+
+### Уровень 2 — контейнеры
+
+- [[schemas/c4/container-to-be.puml|Исходник PlantUML]]
+
+![[schemas/c4/container-to-be.png|Диаграмма контейнеров C4 To-Be]]
+
+### Уровень 3 — компоненты
+
+- [[schemas/c4/component-proxy-service.puml|proxy-service]]
+- [[schemas/c4/component-movies-service.puml|movies-service]]
+- [[schemas/c4/component-subscriptions-service.puml|subscriptions-service]]
+- [[schemas/c4/component-ratings-service.puml|ratings-service]]
+- [[schemas/c4/component-user-collections-service.puml|user-collections-service]]
+- [[schemas/c4/component-events-service.puml|events-service]]
+
+Изображения компонентных диаграмм и их исходники находятся в [[schemas/c4/README|schemas/c4]].
+
 ## Компоненты
 
 ### Монолит
