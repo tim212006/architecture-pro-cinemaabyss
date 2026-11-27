@@ -5,7 +5,8 @@ global:
 
 # Image pull secrets
 imagePullSecrets:
-  dockerconfigjson: ""
+  enabled: true
+  name: dockerconfigjson
 # Database configuration
 database:
   host: postgres

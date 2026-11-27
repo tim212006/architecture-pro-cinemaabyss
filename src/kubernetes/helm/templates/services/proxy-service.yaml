@@ -23,9 +23,9 @@ spec:
       labels:
         app: proxy-service
     spec:
-      {{- if .Values.imagePullSecrets.dockerconfigjson }}
+      {{- if .Values.imagePullSecrets.enabled }}
       imagePullSecrets:
-        - name: dockerconfigjson
+        - name: {{ .Values.imagePullSecrets.name }}
       {{- end }}
       containers:
         - name: proxy-service

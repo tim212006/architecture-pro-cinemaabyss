@@ -54,9 +54,9 @@ spec:
           initialDelaySeconds: 15
           periodSeconds: 20
       restartPolicy: Always
-      {{- if .Values.imagePullSecrets.dockerconfigjson }}
+      {{- if .Values.imagePullSecrets.enabled }}
       imagePullSecrets:
-        - name: dockerconfigjson
+        - name: {{ .Values.imagePullSecrets.name }}
       {{- end }}
 ---
 apiVersion: v1
