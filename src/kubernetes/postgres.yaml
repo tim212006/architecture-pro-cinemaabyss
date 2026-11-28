@@ -47,6 +47,9 @@ spec:
           mountPath: /var/lib/postgresql/data
         - name: postgres-init-scripts
           mountPath: /docker-entrypoint-initdb.d
+        - name: postgres-secrets
+          mountPath: /etc/secrets
+          readOnly: true
         readinessProbe:
           exec:
             command: ["pg_isready", "-U", "postgres"]
@@ -61,6 +64,9 @@ spec:
       - name: postgres-init-scripts
         configMap:
           name: postgres-init-scripts
+      - name: postgres-secrets
+        secret:
+          secretName: cinemaabyss-secrets
   volumeClaimTemplates:
   - metadata:
       name: postgres-data

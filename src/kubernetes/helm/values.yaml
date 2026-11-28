@@ -3,6 +3,11 @@ global:
   namespace: cinemaabyss
   domain: cinemaabyss.example.com
 
+# Secret creation job settings
+createSecretsJob:
+  enabled: true
+  serviceAccountName: default
+
 # Image pull secrets
 imagePullSecrets:
   enabled: true

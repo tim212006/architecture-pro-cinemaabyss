@@ -249,3 +249,53 @@ chmod +x run-tests.sh
 2. Протестируйте постепенный переход, изменив переменную окружения MOVIES_MIGRATION_PERCENT в файле docker-compose.yml.
 
 3. Проверьте топики Kafka и сообщения через Kafka UI по адресу http://localhost:8090
+
+### Helm Deployment
+
+Для автоматизации развертывания secrets (пароли, dockerconfigjson) используется **Helm Job Hook**. При установке чарта автоматически создается Job, который:
+- Проверяет существование secrets
+- Генерирует случайный пароль для PostgreSQL, если он не задан в values.yaml
+- Создает необходимые secrets только если они не существуют
+
+#### Развертывание через Helm
+
+1. Установите чарт (с автоматическим созданием secrets):
+```bash
+helm install cinemaabyss ./src/kubernetes/helm --namespace cinemaabyss --create-namespace
+```
+
+2. Для установки с кастомным паролем:
+```bash
+helm install cinemaabyss ./src/kubernetes/helm \
+  --namespace cinemaabyss \
+  --create-namespace \
+  --set database.password="your-custom-password"
+```
+
+3. Проверьте статус:
+```bash
+kubectl get pods -n cinemaabyss
+helm list -n cinemaabyss
+```
+
+4. Обновление чарта:
+```bash
+helm upgrade cinemaabyss ./src/kubernetes/helm --namespace cinemaabyss
+```
+
+#### Настройки values.yaml
+```yaml
+# Auto-create secrets
+createSecretsJob:
+  enabled: true
+  serviceAccountName: default
+
+# Database password (leave empty for auto-generation)
+database:
+  password: ""  # будет сгенерирован случайный пароль
+
+# Docker registry credentials
+imagePullSecrets:
+  enabled: true
+  name: dockerconfigjson
+```
