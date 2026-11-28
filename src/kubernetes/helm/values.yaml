@@ -3,9 +3,15 @@ global:
   namespace: cinemaabyss
   domain: cinemaabyss.example.com
 
+# Secret creation job settings
+createSecretsJob:
+  enabled: true
+  serviceAccountName: default
+
 # Image pull secrets
 imagePullSecrets:
-  dockerconfigjson: ""
+  enabled: true
+  name: dockerconfigjson
 # Database configuration
 database:
   host: postgres

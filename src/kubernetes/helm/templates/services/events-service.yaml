@@ -23,8 +23,10 @@ spec:
       labels:
         app: events-service
     spec:
+      {{- if .Values.imagePullSecrets.enabled }}
       imagePullSecrets:
-        - name: dockerconfigjson
+        - name: {{ .Values.imagePullSecrets.name }}
+      {{- end }}
       containers:
         - name: events-service
           image: "{{ .Values.eventsService.image.repository }}:{{ .Values.eventsService.image.tag }}"
